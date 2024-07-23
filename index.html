@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progression de la Récolte</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 20px 0;
+        }
+        .date {
+            font-size: 4vw;
+            color: #B8860B;
+            margin-bottom: 20px;
+        }
+        .metric {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #totalRecolte {
+            font-size: 8vw;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        #objectif {
+            font-size: 2.5vw;
+            color: #888;
+            margin-top: 10px;
+        }
+        #progressBar {
+            width: 100%;
+            height: 8vh;
+            background-color: #333;
+            border: 3px solid #fff;
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        #progressFill {
+            height: 100%;
+            background-color: #4CAF50;
+            transition: width 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+        #progressText {
+            font-size: 2.5vw;
+            font-weight: bold;
+            color: #fff;
+            z-index: 10;
+        }
+        #qrcode {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+        }
+        #qrcode img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="date" id="currentDate"></div>
+        <div class="metric">
+            <div id="totalRecolte">0 CHF</div>
+            <div id="objectif">Objectif : 740'000 CHF</div>
+        </div>
+        <div id="progressBar">
+            <div id="progressFill">
+                <span id="progressText">0%</span>
+            </div>
+        </div>
+    </div>
+    <div id="qrcode"></div>
+
+    <script>
+        const totalRecolte = 30800; // Exemple de montant récolté
+        const montantTotal = 740000;
+        const pourcentage = (totalRecolte / montantTotal) * 100;
+
+        document.getElementById('totalRecolte').textContent = `${totalRecolte.toLocaleString()} CHF`;
+
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        
+        progressText.textContent = `${pourcentage.toFixed(1)}%`;
+
+        // Animation de la barre de progression
+        setTimeout(() => {
+            progressFill.style.width = `${pourcentage}%`;
+        }, 100);
+
+        // Affichage de la date du jour
+        const currentDate = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = currentDate.toLocaleDateString('fr-FR', options);
+
+        // Génération du QR code
+        const qr = qrcode(0, 'L');
+        qr.addData('https://docs.google.com/forms/d/e/1FAIpQLSc7BlKx-n79_-pOm46anvRlnRTNFY37br7CZTgdKmvE-VHM3Q/viewform');
+        qr.make();
+        document.getElementById('qrcode').innerHTML = qr.createImgTag(4);
+    </script>
+</body>
+</html>
