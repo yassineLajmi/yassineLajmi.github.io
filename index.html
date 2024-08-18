@@ -108,7 +108,7 @@
     <div id="qrcode"></div>
 
     <script>
-        const montantPromis = 96248; // Exemple de montant promis
+        const montantPromis = 101248; // Exemple de montant promis
         const montantRecu = 45518; // Montant reçu
         const montantTotal = 740000;
         
@@ -120,7 +120,7 @@
         const pourcentage = (montantPromis / montantTotal) * 100;
 
         //document.getElementById('montantPromis').textContent = `Promis : ${montantPromis.toLocaleString()} CHF`;
-        //document.getElementById('montantRecu').textContent = `Reçu : ${montantRecu.toLocaleString()} CHF`;
+        //document.getElementById('montantRecu').textContent = `dont Reçu : ${montantRecu.toLocaleString()} CHF`;
 		
 		document.getElementById('montantPromis').textContent = `Promis : ${formatMontantSuisse(montantPromis)} CHF`;
         document.getElementById('montantRecu').textContent = `Reçu : ${formatMontantSuisse(montantRecu)} CHF`;
