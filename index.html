@@ -97,7 +97,7 @@
         <div class="metric">
             <div id="montantPromis">0000 CHF</div> <!-- Exemple de montant promis -->
             <div id="montantRecu">0000 CHF</div> <!-- Montant reçu -->
-            <div id="objectif">Objectif : 740'000 CHF</div>
+            <div id="objectif">Objectif : 740'000 CHF (+frais ~60k)</div>
         </div>
         <div id="progressBar">
             <div id="progressFill">
@@ -109,7 +109,7 @@
 
     <script>
         const montantPromis = 101718; // Exemple de montant promis
-        const montantRecu = 50518; // Montant reçu
+        const montantRecu = 51018; // Montant reçu
         const montantTotal = 740000;
         
 		// Fonction pour formater les montants en format suisse
@@ -123,7 +123,7 @@
         //document.getElementById('montantRecu').textContent = `dont Reçu : ${montantRecu.toLocaleString()} CHF`;
 		
 		document.getElementById('montantPromis').textContent = `Promis : ${formatMontantSuisse(montantPromis)} CHF`;
-        document.getElementById('montantRecu').textContent = `dont Reçu : ${formatMontantSuisse(montantRecu)} CHF`;
+        document.getElementById('montantRecu').textContent = `dont reçu : ${formatMontantSuisse(montantRecu)} CHF`;
 
 
         const progressFill = document.getElementById('progressFill');
