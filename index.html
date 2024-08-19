@@ -108,7 +108,7 @@
     <div id="qrcode"></div>
 
     <script>
-        const montantPromis = 101248; // Exemple de montant promis
+        const montantPromis = 101718; // Exemple de montant promis
         const montantRecu = 50518; // Montant reçu
         const montantTotal = 740000;
         
@@ -123,7 +123,7 @@
         //document.getElementById('montantRecu').textContent = `dont Reçu : ${montantRecu.toLocaleString()} CHF`;
 		
 		document.getElementById('montantPromis').textContent = `Promis : ${formatMontantSuisse(montantPromis)} CHF`;
-        document.getElementById('montantRecu').textContent = `Reçu : ${formatMontantSuisse(montantRecu)} CHF`;
+        document.getElementById('montantRecu').textContent = `dont Reçu : ${formatMontantSuisse(montantRecu)} CHF`;
 
 
         const progressFill = document.getElementById('progressFill');
