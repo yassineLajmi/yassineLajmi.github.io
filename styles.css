@@ -1,0 +1,246 @@
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #006a4e;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Cairo', sans-serif;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #005040;
+}
+
+.content-section {
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+h2 {
+    font-size: 28px;
+    color: #006a4e;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Cairo', sans-serif;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.donation-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.donation-button {
+    background-color: #d4af37;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.donation-button:hover {
+    background-color: #b8912c;
+}
+
+.payment-info {
+    margin-top: 20px;
+    max-width: 100%;
+    width: 300px; /* Taille maximale de l'image */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles de la galerie */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Colonnes automatiques avec une largeur minimale de 250px */
+    gap: 20px;
+}
+
+.media-item {
+    max-width: 45%; /* Augmenter la taille des miniatures à 45% */
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Assure que les coins arrondis s'appliquent correctement */
+}
+
+.media-item img, .media-item video {
+    width: 100%; /* Les médias occupent toute la largeur du conteneur */
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+/* Styles pour le footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Media queries pour rendre le site responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .donation-button {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .payment-info {
+        width: 80%;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .media-item {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .donation-button {
+        width: 100%;
+    }
+
+    .payment-info {
+        width: 100%;
+    }
+
+    .media-item {
+        max-width: 100%;
+    }
+}
+/* Styles pour l'iframe des horaires de prière */
+.prayer-timetable {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio d'aspect 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 85%;
+    background-color: #f9f9f9; /* Couleur de fond optionnelle */
+    margin: 20px 20px;
+    border-radius: 10px; /* Coins arrondis pour une meilleure intégration */
+    box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.prayer-timetable iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.avancement-dons {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio d'aspect 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 85%;
+    background-color: #f9f9f9; /* Couleur de fond optionnelle */
+    margin: 20px 20px;
+    border-radius: 10px; /* Coins arrondis pour une meilleure intégration */
+    box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.avancement-dons iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Styles de la galerie */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espace entre les éléments */
+}
+
+/* Media queries pour rendre le site responsive avec des miniatures plus grandes */
+@media (max-width: 1024px) {
+    .media-item {
+        max-width: 45%; /* Taille maintenue sur les écrans moyens */
+    }
+}
+
+
