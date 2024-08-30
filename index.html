@@ -139,7 +139,7 @@
         document.getElementById('currentDate').textContent = currentDate.toLocaleDateString('fr-FR', options);
 
         // Génération du QR code uniquement si le paramètre 'displayQrCode' est présent dans l'URL
-        if (!getQueryParam('displayQrCode')) {
+        if (getQueryParam('displayQrCode')) {
         	const qr = qrcode(0, 'L');
         	qr.addData('https://docs.google.com/forms/d/e/1FAIpQLSc7BlKx-n79_-pOm46anvRlnRTNFY37br7CZTgdKmvE-VHM3Q/viewform');
         	qr.make();
