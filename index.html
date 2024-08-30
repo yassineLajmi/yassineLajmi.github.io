@@ -119,10 +119,7 @@
 		
         const pourcentage = (montantPromis / montantTotal) * 100;
 
-        //document.getElementById('montantPromis').textContent = `Promis : ${montantPromis.toLocaleString()} CHF`;
-        //document.getElementById('montantRecu').textContent = `dont Reçus : ${montantRecu.toLocaleString()} CHF`;
-		
-		document.getElementById('montantPromis').textContent = `Promis : ${formatMontantSuisse(montantPromis)} CHF`;
+        document.getElementById('montantPromis').textContent = `Promis : ${formatMontantSuisse(montantPromis)} CHF`;
         document.getElementById('montantRecu').textContent = `dont reçus : ${formatMontantSuisse(montantRecu)} CHF`;
 
 
@@ -141,11 +138,13 @@
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('currentDate').textContent = currentDate.toLocaleDateString('fr-FR', options);
 
-        // Génération du QR code
-        const qr = qrcode(0, 'L');
-        qr.addData('https://docs.google.com/forms/d/e/1FAIpQLSc7BlKx-n79_-pOm46anvRlnRTNFY37br7CZTgdKmvE-VHM3Q/viewform');
-        qr.make();
-        document.getElementById('qrcode').innerHTML = qr.createImgTag(4);
+        // Génération du QR code uniquement si le paramètre 'displayQrCode' est présent dans l'URL
+        if (!getQueryParam('displayQrCode')) {
+        	const qr = qrcode(0, 'L');
+        	qr.addData('https://docs.google.com/forms/d/e/1FAIpQLSc7BlKx-n79_-pOm46anvRlnRTNFY37br7CZTgdKmvE-VHM3Q/viewform');
+        	qr.make();
+        	document.getElementById('qrcode').innerHTML = qr.createImgTag(4);
+	}
     </script>
 </body>
 </html>
